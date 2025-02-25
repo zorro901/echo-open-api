@@ -2,16 +2,24 @@
 package: api
 
 import-mapping:
-# カスタムマッピングが必要な場合に指定
-# 例: openapi.yaml内の "Schema" を "github.com/your-org/your-repo/pkg/models.Schema" にマッピング
-# Schema: github.com/your-org/your-repo/pkg/models.Schema
+  ./models.yaml: "-"
 
 generate:
   models: true        # モデル（データ構造体）を生成
   echo-server: true   # Echo フレームワーク用のサーバーコードを生成
   strict-server: true # 厳密なサーバー検証を生成
+  embedded-spec: true
 
 output: "./api/generated.go"
+#output-options:
+
+compatibility:
+  always-prefix-enum-values: true
+
+output-options:
+  response-type-suffix: ''
+  nullable-type: true
+
 
 ## その他のオプション
 #options:

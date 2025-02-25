@@ -1,0 +1,17 @@
+components:
+  schemas:
+    EchoRequest:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+
+    EchoResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
