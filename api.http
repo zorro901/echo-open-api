@@ -1,0 +1,22 @@
+# curl -X POST -H "Content-Type: application/json" -d '{"message":"Hello, World!"}' http://localhost:8082/echo
+POST http://localhost:8082/echo
+Content-Type: application/json
+
+{
+	"message": "Hello, World!"
+}
+
+###
+
+# curl -X POST http://localhost:8080/echo
+#  -H "Content-Type: application/json"
+#  -d '{"message": "こんにちは"}'
+POST http://localhost:8082/echo
+Content-Type: application/json
+
+{
+	"message": "こんにちは"
+}
+
+###
+

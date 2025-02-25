@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/HEAD/configuration-schema.json
+package: api
+
+import-mapping:
+# カスタムマッピングが必要な場合に指定
+# 例: openapi.yaml内の "Schema" を "github.com/your-org/your-repo/pkg/models.Schema" にマッピング
+# Schema: github.com/your-org/your-repo/pkg/models.Schema
+
+generate:
+  models: true        # モデル（データ構造体）を生成
+  echo-server: true   # Echo フレームワーク用のサーバーコードを生成
+  strict-server: true # 厳密なサーバー検証を生成
+
+output: "./api/generated.go"
+
+## その他のオプション
+#options:
+#  compatible-version: "2.0.0"            # 互換性のあるバージョン
+#  exclude-schemas:                       # 除外するスキーマの指定
+#    - OldType
+#  exclude-tags:                          # 除外するタグの指定
+#    - deprecated
+#  include-tags:                          # 含めるタグの指定（指定した場合、これらのタグだけが含まれる）
+#    - public
+#  with-github-repo:                      # GitHub リポジトリへのリンク
+#  output-options:
+#    skip-prune: false                    # 使用されていないモデルを削除しない
+#    skip-validate: false                 # メッセージのバリデーションをスキップ
