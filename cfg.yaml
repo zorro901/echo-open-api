@@ -10,27 +10,12 @@ generate:
   strict-server: true # 厳密なサーバー検証を生成
   embedded-spec: true
 
-output: "./api/generated.go"
-#output-options:
+output: ./api/generated.go
 
 compatibility:
   always-prefix-enum-values: true
 
 output-options:
-  response-type-suffix: ''
+#  response-type-suffix: 'response'
   nullable-type: true
-
-
-## その他のオプション
-#options:
-#  compatible-version: "2.0.0"            # 互換性のあるバージョン
-#  exclude-schemas:                       # 除外するスキーマの指定
-#    - OldType
-#  exclude-tags:                          # 除外するタグの指定
-#    - deprecated
-#  include-tags:                          # 含めるタグの指定（指定した場合、これらのタグだけが含まれる）
-#    - public
-#  with-github-repo:                      # GitHub リポジトリへのリンク
-#  output-options:
-#    skip-prune: false                    # 使用されていないモデルを削除しない
-#    skip-validate: false                 # メッセージのバリデーションをスキップ
+  skip-prune: true

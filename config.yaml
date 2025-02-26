@@ -1,6 +1,0 @@
-package: api
-generate:
-  echo-server: true
-  models: true
-  client: true
-output: api.gen.go
