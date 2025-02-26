@@ -10,7 +10,7 @@ generate:
   strict-server: true # 厳密なサーバー検証を生成
   embedded-spec: true
 
-output: ./api/generated.go
+output: generated.go
 
 compatibility:
   always-prefix-enum-values: true

@@ -2,6 +2,7 @@ package main
 
 import (
 	"echo-open-api/api"
+	"github.com/getkin/kin-openapi/openapi3filter"
 	"log"
 	"net/http"
 
@@ -40,9 +41,23 @@ func main() {
 	// 検証に使用しないため、Serversフィールドをクリア
 	swagger.Servers = nil
 
+	// オプションを設定
+	options := &middleware.Options{
+		ErrorHandler: func(c echo.Context, err *echo.HTTPError) error {
+			return c.JSON(err.Code, map[string]string{
+				"message": err.Message.(string),
+			})
+		},
+		Options: openapi3filter.Options{},
+		Skipper: func(c echo.Context) bool {
+			return c.Path() == "/health"
+		},
+		SilenceServersWarning: true,
+	}
+
 	// OpenAPI検証ミドルウェアを設定
-	e.Use(middleware.OapiRequestValidator(swagger))
-	//e.Use(middleware.OapiRequestValidatorWithOptions(swagger))
+	//e.Use(middleware.OapiRequestValidator(swagger))
+	e.Use(middleware.OapiRequestValidatorWithOptions(swagger, options))
 
 	// サーバー実装を作成
 	server := &ServerImpl{}

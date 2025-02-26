@@ -15,7 +15,7 @@ POST http://localhost:8080/echo
 Content-Type: application/json
 
 {
-	"message": "こんにちは"
+	"message": 1
 }
 
 ###
