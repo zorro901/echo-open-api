@@ -1,3 +1,4 @@
+# combined.yaml
 openapi: 3.0.0
 info:
   title: Echo API
@@ -13,11 +14,27 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './models.yaml#/components/schemas/EchoRequest'
+              $ref: '#/components/schemas/EchoRequest'
       responses:
         '200':
           description: 成功したエコーレスポンス
           content:
             application/json:
               schema:
-                $ref: './models.yaml#/components/schemas/EchoResponse'
+                $ref: '#/components/schemas/EchoResponse'
+
+components:
+  schemas:
+    EchoRequest:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    
+    EchoResponse:
+      type: object
+      properties:
+        message:
+          type: string

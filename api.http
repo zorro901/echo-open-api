@@ -11,7 +11,7 @@ Content-Type: application/json
 # curl -X POST http://localhost:8080/echo
 #  -H "Content-Type: application/json"
 #  -d '{"message": "こんにちは"}'
-POST http://localhost:8082/echo
+POST http://localhost:8080/echo
 Content-Type: application/json
 
 {
